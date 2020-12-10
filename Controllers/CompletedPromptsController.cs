@@ -45,6 +45,7 @@ namespace CommAcc5.Controllers
         }
 
         // GET: CompletedPrompts/Create
+        [Authorize]
         public IActionResult Create()
         {
             //Getting Data from DB
@@ -57,6 +58,7 @@ namespace CommAcc5.Controllers
         // POST: CompletedPrompts/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("completed_id,p_id,book_name,author_name,rating")] CompletedPrompts completedPrompts)

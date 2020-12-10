@@ -1,13 +1,13 @@
 ﻿@model CommAcc5.Models.CompletedPrompts
 
-<h4>Search Completed Prompts</h4>
+<h4>Search Completed Prompts by Author</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="ShowSearchResults">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label name="SearchCompletedPrompts" class="control-label"></label>
+                <label name="SearchCompletedPrompts" class="control-label">Search By Author's Name</label>
                 <input name="SearchCompletedPrompts" class="form-control" />
             </div>
             <div class="form-group">
