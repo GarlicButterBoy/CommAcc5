@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CommAcc5.Data;
 using CommAcc5.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CommAcc5.Controllers
 {
@@ -152,6 +153,16 @@ namespace CommAcc5.Controllers
         private bool CompletedPromptsExists(int id)
         {
             return _context.CompletedPrompts.Any(e => e.completed_id == id);
+        }
+
+        public async Task<IActionResult> Searching()
+        {
+            return View();
+        }
+
+        public async Task<IActionResult> ShowSearchResults(string SearchCompletedPrompts)
+        {
+            return View("Index", await _context.CompletedPrompts.Where(s => s.author_name.Contains(SearchCompletedPrompts)).ToListAsync());
         }
     }
 }
