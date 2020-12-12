@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,6 +13,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebPWrecover.Services;
+
 
 namespace CommAcc5
 {
@@ -32,6 +35,15 @@ namespace CommAcc5
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            // requires
+            // using Microsoft.AspNetCore.Identity.UI.Services;
+            // using WebPWrecover.Services;
+
+            //COULDNT GET TO WORK PROPERLY
+           // services.AddTransient<IEmailSender, EmailSender>();
+           // services.Configure<AuthMessageSenderOptions>(Configuration);
+
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
